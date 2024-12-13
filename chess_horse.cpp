@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <time.h>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ bool chessboard_check(){
     return true;
 }
 string horse(int y, int x){
+    cout<<y<<x<<endl;
     chessboard[y][x] = true;
     int new_y, new_x;
     for(pair<int, int> move : moves){
@@ -37,6 +39,14 @@ string horse(int y, int x){
 }
 int main()
 {
-    cout<<"Получившийся путь коня: "<<horse(0,0);
+    int y,x;
+    cout<<"Введите y"<<endl;
+    cin>>y;
+    cout<<"Введите x"<<endl;
+    cin>>x;
+    clock_t start = clock();
+    cout<<"Получившийся путь коня: "<<horse(y, x)<<endl;
+    clock_t end = clock();
+    cout<<"Время: 0.000"<<(end-start);
     return 0;
 }
